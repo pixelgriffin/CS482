@@ -1,0 +1,1 @@
+g++ Main.cpp -o RomaniaSearch
