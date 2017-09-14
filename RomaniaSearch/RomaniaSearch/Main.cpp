@@ -77,7 +77,7 @@ bool ReadGraphFile(char* fname)
 }
 
 /*
-PrintVertex: Prints the current vertex traveled to and saves the output to a file
+LogVertex: Prints the current vertex traveled to and saves the output to a file
 
 Arguments:
 	int vert: The vertex that you are currently visiting
@@ -87,7 +87,7 @@ This function makes it easier for you to print the proper data. It also saves th
 
 Returns void: No values returned
 */
-void PrintVertex(int vert)
+void LogVertex(int vert)
 {
 	printf("%d\n", vert);
 	fprintf(output, "%d\n", vert);
