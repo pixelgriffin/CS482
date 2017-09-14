@@ -46,8 +46,9 @@ bool ReadGraphFile(char* fname)
 	{
 		rewind(file);
 		int a, b, d;
-
-		fscanf_s(file, "%d", &vertexCount);
+		
+		fscanf(file, "%d", &vertexCount);
+		//fscanf_s(file, "%d", &vertexCount);
 
 		graph = new int*[vertexCount];
 		for (int u = 0; u < vertexCount; u++)
@@ -60,7 +61,8 @@ bool ReadGraphFile(char* fname)
 			}
 		}
 
-		while (fscanf_s(file, "%d %d %d", &a, &b, &d) != EOF)
+		while (fscanf(file, "%d %d %d", &a, &b, &d) != EOF)
+//		while (fscanf_s(file, "%d %d %d", &a, &b, &d) != EOF)
 		{
 			AddEdge(a, b, d);
 		}
