@@ -1,2 +1,2 @@
 all: 
-	g++ Main.cpp -o RomaniaSearch
+	g++ Romania.cpp -o RomaniaSearch
