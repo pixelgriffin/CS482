@@ -11,3 +11,7 @@ Example:
 	cd RomaniaSearch/RomaniaSearch
 
 	make
+
+# Submission instructions:
+
+TBD
