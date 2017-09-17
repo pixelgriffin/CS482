@@ -36,7 +36,8 @@ bool ReadBoardFile(char* fname)
 		}
 
 		int i = 0;
-		while (fscanf_s(file, "%d %d %d", &a, &b, &c) != EOF)
+		//while (fscanf_s(file, "%d %d %d", &a, &b, &c) != EOF)
+		while (fscanf(file, "%d %d %d", &a, &b, &c) != EOF)
 		{
 			board[0][i] = a;
 			board[1][i] = b;
@@ -123,7 +124,6 @@ int main(int argc, char** argv)
 
 
 	//Your code
-
 
 
 	//Cleanup
