@@ -129,7 +129,7 @@ int main(int argc, char** argv)
 {
 	//Setup
 	//-----------------------------------
-	if (argc == 2)
+	if (argc == 3)
 	{
 		if (!ReadGraphFile(argv[1]))
 			return 2;
