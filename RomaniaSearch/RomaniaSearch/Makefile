@@ -1,9 +1,9 @@
 all: BFS DFS IDS
 BFS:
-	g++ Romania.cpp -o BFS
+	g++ RomaniaBFS.cpp -o BFS
 
 DFS:
-	g++ Romania.cpp -o DFS
+	g++ RomaniaDFS.cpp -o DFS
 
 IDS:
-	g++ Romania.cpp -o IDS
+	g++ RomaniaIDS.cpp -o IDS
