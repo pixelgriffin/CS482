@@ -11,9 +11,36 @@ struct Move {
 	int z;
 };
 
+/*
+	read_from_file: reads the board from a file
+	args:
+		char* inputfilename: filename to be read
+		int board[][4][4]: array to store board
+
+	returns: 0 if all is well; -2 if the file cannot be opened for reading
+*/
+
 int read_from_file( char* inputfilename, int board[][4][4] );
+
+/*
+	write_to_file: writes the board from a file
+	args:
+		char* outputfilename: filename to be written
+		int board[4][4][4]: array to store board
+
+	returns: 0 if all is well; -2 if the file cannot be opened for writing
+*/
+
 int write_to_file( char* outputfilename, int board[4][4][4] );
-int print_move_to_screen( Move m);
+
+/*
+	print_move_to_screen: prints the board so that the autograder should be able to read your answer
+	args:
+		Move m: struct storing the x,y,z coordinate of the square to move to
+
+	returns: void
+*/
+void print_move_to_screen( Move m);
 
 int main( int argc, char* argv[] )
 {
@@ -147,10 +174,8 @@ int write_to_file( char* outputfilename, int board[4][4][4] )
 	return 0;
 }
 
-int print_move_to_screen( Move m)
+void print_move_to_screen( Move m)
 {
 	printf( "%d %d %d\n", m.x, m.y, m.z);
-	return 0;
-
 }
 
