@@ -1,7 +1,8 @@
-#include <pthread.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
+#include <pthread.h>
 #include <string.h>
 
 struct Move {
@@ -12,7 +13,7 @@ struct Move {
 
 int read_from_file( char* inputfilename, int board[][4][4] );
 int write_to_file( char* outputfilename, int board[4][4][4] );
-int write_move_to_file( char* outputfilename, Move m);
+int print_move_to_screen( Move m);
 
 int main( int argc, char* argv[] )
 {
@@ -58,21 +59,24 @@ int main( int argc, char* argv[] )
 	}
 
 	// debug info
-	printf( "input file: [%s]\n", inputfilename);
-	printf( "output file: [%s]\n", outputfilename);
+	//printf( "input file: [%s]\n", inputfilename);
+	//printf( "output file: [%s]\n", outputfilename);
 
 	// read from file
 	read_from_file( inputfilename, board );
 
-	printf( "starting tictactoe\n");
+	// debug
+	//printf( "starting tictactoe\n");
 
 	//sleep(5);
 
-	printf( "finishing tictactoe\n");
-
+	//debug into
+	//printf( "finishing tictactoe\n");
+	
+	print_move_to_screen( m );
 
 	//write board state to file and exit
-	return write_move_to_file( outputfilename, m );
+	return write_to_file(outputfilename, board);
 }
 
 int read_from_file( char* inputfilename, int board[][4][4] )
@@ -86,14 +90,12 @@ int read_from_file( char* inputfilename, int board[][4][4] )
 
 	for( int i = 0; i < 4; i++ )
 	{
-		printf( "i: %d\n", i);
 		for( int j = 0; j < 4; j++ )
 		{
 			for( int k = 0; k < 4; k++ )
 			{
 				char c = '.';
 				fscanf(ifile, " %c", &c );
-				printf( "i %d j %d k %d\n", i, j, k);
 				switch( c )
 				{
 					case '.': board[i][j][k] = 0; break;
@@ -145,16 +147,9 @@ int write_to_file( char* outputfilename, int board[4][4][4] )
 	return 0;
 }
 
-int write_move_to_file( char* outputfilename, Move m)
+int print_move_to_screen( Move m)
 {
-	FILE *ofile = fopen( outputfilename, "w" );
-	if( !ofile )
-	{
-		printf( "could not open output file [%s] for writing\n", outputfilename );
-		return -2;
-	}
-	fprintf( ofile, "%d %d %d\n", m.x, m.y, m.z);
-	fclose (ofile);
+	printf( "%d %d %d\n", m.x, m.y, m.z);
 	return 0;
 
 }
