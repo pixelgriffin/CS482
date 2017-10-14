@@ -19,18 +19,27 @@ int main( int argc, char* argv[] )
 	char* inputfilename = NULL, *outputfilename = NULL;
 	int board[4][4][4];
 	Move m = {0,0,0};
+	int ply = 0;
 
 	// parse command-line arguments
 	for( int i = 1; i < argc; i++ )
 	{
+		// input file
 		if( !strcmp(argv[i], "-i" ) )
 		{
 			inputfilename = argv[i+1];
 			i++;
 		}
+		// output file
 		else if( !strcmp( argv[i], "-o") )
 		{
 			outputfilename = argv[i+1];
+			i++;
+		}
+		// number of ply to search ahead
+		else if( !strcmp( argv[i], "-p") )
+		{
+			ply = atoi(argv[i+1]);
 			i++;
 		}
 	}
@@ -39,6 +48,12 @@ int main( int argc, char* argv[] )
 	if( inputfilename == NULL || outputfilename == NULL )
 	{
 		printf( "input and output filenames need to be specified on the command line (-i <filename> -o <filename>\n");
+		return -1;
+	}
+
+	if( ply <= 0 )
+	{
+		printf( "need to have ply set to be greater than 0 (use -p <ply>)\n");
 		return -1;
 	}
 
