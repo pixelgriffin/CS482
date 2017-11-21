@@ -1,0 +1,6 @@
+float64[2] 	u
+float64[4] 	sigma
+bool        d
+float64[10] door_dist
+---
+float64[10] door_dist
