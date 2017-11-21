@@ -12,16 +12,20 @@ You will need to have python, numpy, and scipy installed:
 # C++ compilation/running instructions
 
 To make the simulator use the c++ code, change lines 14, 15 of sim.py to be:
+
 	from kf_ros import kf_update
 	from kf_ros import door_update
 
 Every time you open a terminal cd to the KalmanFilter directory and type:
+
 	. rosrc
 
 To make (from KalmanFilter directory):
+
 	make
 
 To run (from KalmanFilter directory):
+
 	roslaunch cpp_code.launch
 	
 	(in a second terminal)
